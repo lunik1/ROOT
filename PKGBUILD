@@ -22,12 +22,13 @@ makedepends=(
 'libx11'
 'libpng'
 'libjpeg-turbo'
+'libafterimage'
 #################################################################################
 ## marked as optional dependencies on https://root.cern.ch/build-prerequisites ##
 #################################################################################
-#'gcc-fortran' # for /usr/bin/gfortran - but fortran=OFF
+'gcc-fortran' # for /usr/bin/gfortran - but fortran=OFF
 #'openssl' # for /usr/include/openssl/pem.h and /usr/lib/libssl.so and /usr/lib/libcrypto.so
-#'fftw' # for /usr/include/fftw3.h and for /usr/lib/libfftw3.so -- builtin_fftw3=OFF but fftw3=ON
+'fftw' # for /usr/include/fftw3.h and for /usr/lib/libfftw3.so -- builtin_fftw3=OFF but fftw3=ON
 'ftgl' # unlisted optional dependency -- for builtin_ftgl=OFF
 'freetype2' # for builtin_freetype=OFF
 'glew' # for /usr/include/GL/glew.h and for /usr/lib/libGLEW.so -- for builtin_glew=OFF
@@ -45,7 +46,7 @@ makedepends=(
 #'libmariadbclient' # for /usr/bin/mysql_config (or ? 'libmysqlclient') but mysql=OFF
 'mesa' # for /usr/include/GL/gl.h and for /usr/lib/libGL.so -- for opengl=ON (OpenGL support, requires libGL and libGLU)
 'mesa-libgl' # unlisted optional dependency -- for opengl=ON (OpenGL support, requires libGL and libGLU)
-'pythia' # unlisted optional dependency -- for pythia8=ON
+#'pythia' # unlisted optional dependency -- for pythia8=ON
 'python2' # for /usr/include/python2.7/Python.h and for /usr/lib[64]/libpython2.7.so -- for python=ON
 #'qt4' # for /usr/include/Qt/qglobal.h and for /usr/lib[64]/libQtCore.so -- but qt=OFF and qtgsi=OFF
 #'ssl' # for /usr/include/openssl/pem.h and /usr/lib/libssl.so and /usr/lib/libcrypto.so -- but ssl=OFF
@@ -69,14 +70,12 @@ source=(
 'ROOT.xml'
 'settings.cmake')
 
-md5sums=(
-'65675a1dbaa4810df0479dbcf62f0ba0' # source.tar.gz
-'d9bb5d9272ef156744af8da8c1b56053' # ROOT.desktop
-'14286a57d602bf3a2d9f6131f5a38514' # icons.tar.gz
-'77e03c6b8b634efa6c8cbba88d32516f' # ROOT.sh
-'76794a239d7bc924f88eac357b01d5c8' # ROOT.xml
-'7982372e4914ca3777fd8d02aef3de3f' # settings.cmake
-)
+md5sums=('65675a1dbaa4810df0479dbcf62f0ba0'
+         'd9bb5d9272ef156744af8da8c1b56053'
+         '14286a57d602bf3a2d9f6131f5a38514'
+         '77e03c6b8b634efa6c8cbba88d32516f'
+         '76794a239d7bc924f88eac357b01d5c8'
+         'aabd2c4abecdbf4fd41a4aa745bd2c88')
 
 build() {
 	cmake -C $srcdir/settings.cmake $srcdir/$_pkgid
