@@ -70,12 +70,14 @@ source=(
 'ROOT.xml'
 'settings.cmake')
 
-md5sums=('65675a1dbaa4810df0479dbcf62f0ba0'
-         'd9bb5d9272ef156744af8da8c1b56053'
-         '14286a57d602bf3a2d9f6131f5a38514'
-         '77e03c6b8b634efa6c8cbba88d32516f'
-         '76794a239d7bc924f88eac357b01d5c8'
-         'aabd2c4abecdbf4fd41a4aa745bd2c88')
+md5sums=(
+'65675a1dbaa4810df0479dbcf62f0ba0' # source.tar.gz
+'d9bb5d9272ef156744af8da8c1b56053' # ROOT.desktop
+'14286a57d602bf3a2d9f6131f5a38514' # icons.tar.gz
+'77e03c6b8b634efa6c8cbba88d32516f' # ROOT.sh
+'76794a239d7bc924f88eac357b01d5c8' # ROOT.xml
+'5f431b4ef9c88bc8c8e627d20c5b4d56' # settings.cmake
+)
 
 build() {
 	cmake -C $srcdir/settings.cmake $srcdir/$_pkgid
