@@ -7,7 +7,7 @@ pkgdesc='C++ data analysis framework and interpreter from CERN.'
 arch=('i686' 'x86_64')
 url='http://root.cern.ch'
 license=('LGPL2.1')
-depends=('gsl' )
+depends=('gsl' 'jemalloc')
 optdepends=('pythia: analisys of Monte Carlo generated events' 'python2: PyROOT support' 'jupyter: ROOT notebook support' 'ipython2: ROOT notebook support')
 makedepends=(
 'cmake'
@@ -63,7 +63,7 @@ depends=('gsl' 'desktop-file-utils' 'gtk-update-icon-cache' 'shared-mime-info')
 install='root.install'
 options=('!emptydirs')
 source=(
-"ftp://root.cern.ch/root/root_v${pkgver}.source.tar.gz"
+"https://root.cern.ch/download/root_v6.06.02.source.tar.gz"
 'ROOT.desktop'
 'icons.tar.gz'
 'ROOT.sh'
@@ -75,7 +75,7 @@ md5sums=('e9b8b86838f65b0a78d8d02c66c2ec55'
          '14286a57d602bf3a2d9f6131f5a38514'
          '77e03c6b8b634efa6c8cbba88d32516f'
          '76794a239d7bc924f88eac357b01d5c8'
-         'ae049439cc4e6558d1f9c251c21fc821')
+         'b5a814c07e0ce10c06074401ba38d091')
 
 build() {
 	cmake -C $srcdir/settings.cmake $srcdir/$_pkgid
