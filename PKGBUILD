@@ -1,6 +1,6 @@
 # Maintainer: Stefano Campanella <stefanocampanella1729@gmail.com>
 pkgname=root
-pkgver=6.06.08
+pkgver=6.08.00
 _pkgid=$pkgname-$pkgver
 pkgrel=1
 pkgdesc='C++ data analysis framework and interpreter from CERN.'
@@ -48,6 +48,7 @@ makedepends=(
 'mesa-libgl' # unlisted optional dependency -- for opengl=ON (OpenGL support, requires libGL and libGLU)
 #'pythia' # unlisted optional dependency -- for pythia8=ON
 'python2' # for /usr/include/python2.7/Python.h and for /usr/lib[64]/libpython2.7.so -- for python=ON
+'python2-numpy' # unlisted dependency?
 #'qt4' # for /usr/include/Qt/qglobal.h and for /usr/lib[64]/libQtCore.so -- but qt=OFF and qtgsi=OFF
 #'ssl' # for /usr/include/openssl/pem.h and /usr/lib/libssl.so and /usr/lib/libcrypto.so -- but ssl=OFF
 #'graphviz' # for /usr/include/graphviz/gvc.h and for /usr/lib/libgvc.so -- but gviz=OFF
@@ -58,24 +59,27 @@ makedepends=(
 'libxml2' # for /usr/bin/xml2-config
 # 'ccache' # with ccache=OFF
 'giflib'
+'unuran'
+'libafterimage'
+'gl2ps'
 )
 depends=('gsl' 'desktop-file-utils' 'gtk-update-icon-cache' 'shared-mime-info')
 install='root.install'
 options=('!emptydirs')
 source=(
-"https://root.cern.ch/download/root_v"$pkgver".source.tar.gz"
+"http://root.cern.ch/download/root_v${pkgver}.source.tar.gz"
 'ROOT.desktop'
 'icons.tar.gz'
 'ROOT.sh'
 'ROOT.xml'
 'settings.cmake')
 
-md5sums=('6ef0fe9bd9f88f3ce8890e3651142ee4'
+md5sums=('8462a530d27fa5ca7718ea4437632c3c'
          'd9bb5d9272ef156744af8da8c1b56053'
          '14286a57d602bf3a2d9f6131f5a38514'
          '77e03c6b8b634efa6c8cbba88d32516f'
          '76794a239d7bc924f88eac357b01d5c8'
-         'b5a814c07e0ce10c06074401ba38d091')
+         'e532fd8d289d87aa6041e3e7362c3771')
 
 build() {
 	cmake -C $srcdir/settings.cmake $srcdir/$_pkgid
