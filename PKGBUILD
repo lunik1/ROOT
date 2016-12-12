@@ -48,7 +48,6 @@ makedepends=(
 'mesa-libgl' # unlisted optional dependency -- for opengl=ON (OpenGL support, requires libGL and libGLU)
 #'pythia' # unlisted optional dependency -- for pythia8=ON
 'python2' # for /usr/include/python2.7/Python.h and for /usr/lib[64]/libpython2.7.so -- for python=ON
-'python2-numpy' # unlisted dependency?
 #'qt4' # for /usr/include/Qt/qglobal.h and for /usr/lib[64]/libQtCore.so -- but qt=OFF and qtgsi=OFF
 #'ssl' # for /usr/include/openssl/pem.h and /usr/lib/libssl.so and /usr/lib/libcrypto.so -- but ssl=OFF
 #'graphviz' # for /usr/include/graphviz/gvc.h and for /usr/lib/libgvc.so -- but gviz=OFF
@@ -84,13 +83,13 @@ md5sums=('50c4dbb8aa81124aa58524e776fd4b4b'
 build() {
 	cmake -C $srcdir/settings.cmake $srcdir/$_pkgid
 
-	make ${MAKEFLAGS}
+        make ${MAKEFLAGS} -j$(nproc)
 }
 
 package() {
 	cd $srcdir
 
-	make DESTDIR=$pkgdir install
+        make DESTDIR=$pkgdir install -j$(nproc)
 
 	install -D $srcdir/ROOT.sh $pkgdir/etc/profile.d/ROOT.sh
 	install -D -m644 $srcdir/ROOT.xml $pkgdir/usr/share/mime/packages/ROOT.xml
