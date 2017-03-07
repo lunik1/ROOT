@@ -1,6 +1,6 @@
 # Maintainer: Stefano Campanella <stefanocampanella1729@gmail.com>
 pkgname=root
-pkgver=6.08.02
+pkgver=6.08.06
 _pkgid=$pkgname-$pkgver
 pkgrel=1
 pkgdesc='C++ data analysis framework and interpreter from CERN.'
@@ -73,7 +73,7 @@ source=(
 'ROOT.xml'
 'settings.cmake')
 
-md5sums=('50c4dbb8aa81124aa58524e776fd4b4b'
+md5sums=('bcf0be2df31a317d25694ad2736df268'
          'd9bb5d9272ef156744af8da8c1b56053'
          '14286a57d602bf3a2d9f6131f5a38514'
          '77e03c6b8b634efa6c8cbba88d32516f'
