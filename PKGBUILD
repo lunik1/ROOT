@@ -1,6 +1,6 @@
 # Maintainer: Stefano Campanella <stefanocampanella1729@gmail.com>
 pkgname=root
-pkgver=6.08.06
+pkgver=6.09.04
 _pkgid=$pkgname-${pkgver//./-}
 pkgrel=1
 pkgdesc='C++ data analysis framework and interpreter from CERN.'
