@@ -61,6 +61,7 @@ makedepends=(
 'unuran'
 'libafterimage'
 'gl2ps'
+'cern-vdt'
 )
 depends=('gsl' 'desktop-file-utils' 'gtk-update-icon-cache' 'shared-mime-info')
 install='root.install'
