@@ -1,7 +1,7 @@
 # Maintainer: Stefano Campanella <stefanocampanella1729@gmail.com>
 pkgname=root
 pkgver=6.08.06
-_pkgid=$pkgname-$pkgver
+_pkgid=$pkgname-${pkgver//./-}
 pkgrel=1
 pkgdesc='C++ data analysis framework and interpreter from CERN.'
 arch=('i686' 'x86_64')
@@ -66,19 +66,19 @@ depends=('gsl' 'desktop-file-utils' 'gtk-update-icon-cache' 'shared-mime-info')
 install='root.install'
 options=('!emptydirs')
 source=(
-"http://root.cern.ch/download/root_v${pkgver}.source.tar.gz"
+"https://github.com/root-project/root/archive/v${pkgver//./-}.tar.gz"
 'ROOT.desktop'
 'icons.tar.gz'
 'ROOT.sh'
 'ROOT.xml'
 'settings.cmake')
 
-md5sums=('bcf0be2df31a317d25694ad2736df268'
+md5sums=('3d7c1ba93623c0dddb7d808fdf75f937'
          'd9bb5d9272ef156744af8da8c1b56053'
          '14286a57d602bf3a2d9f6131f5a38514'
          '77e03c6b8b634efa6c8cbba88d32516f'
          '76794a239d7bc924f88eac357b01d5c8'
-         'e532fd8d289d87aa6041e3e7362c3771')
+         'd14915e9529f11e40945ee34bd2a3faa')
 
 build() {
 	cmake -C $srcdir/settings.cmake $srcdir/$_pkgid
